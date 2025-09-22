@@ -1,3 +1,120 @@
+<p align="center">
+<img src="composeApp/src/commonMain/composeResources/drawable/exchange_illustration.png" width="15%"/>
+<h1 align="center">Currency Exchange KMP</h1>
+<p align="center">
+A Kotlin Multiplatform app for checking the latest currency exchange rates.
+</p>
+</p>
+
+Currency Exchange KMP is a simple app that allows you to check the latest exchange rates for various currencies. The app is built with Kotlin Multiplatform and Compose Multiplatform, targeting Android and iOS.
+
+![Profile views](https://komarev.com/ghpvc/?username=timo9036&color=green)
+
+## Table of Contents
+
+1.  [Screenshots](#-screenshots)
+2.  [Features](#-features)
+3.  [Built With](#-built-with)
+4.  [Architecture](#️-architecture)
+5.  [Package Structure](#-package-structure)
+6.  [Installation](#️-installation)
+7.  [Contributing](#-contributing)
+8.  [License](#-license)
+
+---
+
+## 📸 Screenshots
+
+Explore the app through these stunning visuals!
+
+<table>
+  <tr>
+     <th align="center">Main Page</th>
+  </tr>
+
+  <tr>
+    <td>
+        <img src="Screenshot_20250921_230815.png" width="400" height="800" alt="Main Page">
+    </td>
+  </tr>
+
+ </table>
+
+## 🌟 Features
+
+-   **Real-time Exchange Rates:** Get the latest currency exchange rates from a reliable API.
+-   **Currency Conversion:** Convert any amount from one currency to another.
+-   **Offline Support:** Access the latest fetched rates even when you're offline, thanks to local caching with Realm.
+-   **Cross-Platform:** Works on both Android and iOS with a shared codebase.
+
+## 🛠 Built With
+
+<p align="center">
+Explore the technology stack that powers Currency Exchange KMP!
+</p>
+
+* **[Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform-get-started.html)** - For sharing code between Android and iOS.
+* **[Jetpack Compose](https://developer.android.com/jetpack/compose)** - For building the UI for both Android and iOS.
+* **[Ktor](https://ktor.io/)** - For making network requests to the currency exchange API.
+* **[Realm](https://realm.io/)** - For caching data locally.
+* **[Voyager](https://voyager.adriel.cafe/)** - A multiplatform navigation library for Compose.
+* **[Koin](https://insert-koin.io/)** - A lightweight dependency injection framework.
+* **[Coroutines](https://kotlinlang.org/docs/coroutines-overview.html)** and **[Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/)** - For asynchronous programming.
+
+## 🏛️ Architecture
+
+This app is based on the **MVVM (Model-View-ViewModel)** architecture and the repository pattern.
+
+## 📦 Package Structure
+```
+com.example.currency_kmp   # Root Package
+│
+├── data                  # Data layer
+│   ├── local             # Local data sources (Realm, Preferences)
+│   └── remote            # Remote data source (Ktor API service)
+│
+├── domain                # Domain layer
+│   ├── model             # Data models and currency codes
+│   └── repository        # Repository interfaces
+│
+├── presentation          # Presentation layer
+│   ├── component         # Reusable UI components
+│   └── screen            # Screens and ViewModels
+│
+├── di                    # Dependency injection setup (Koin)
+│
+└── ui                    # UI-related files
+└── theme             # App theme and colors
+```
+
+## ⬇️ Installation
+
+To get started with Currency Exchange KMP, follow these steps:
+
+1.  Clone the repository.
+2.  Open the project in Android Studio or IntelliJ IDEA.
+3.  Run the application on your desired platform (Android or iOS).
+
+## 🙋 Contributing
+
+We welcome contributions! Feel free to open an issue or submit a pull request.
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
+
+
+
+----------------------------
+
+
+
+
+
+
+
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
 * [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
