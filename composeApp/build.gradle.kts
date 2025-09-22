@@ -4,8 +4,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
-    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinxSerialization)
+    alias(libs.plugins.realm.plugin)
 }
 
 kotlin {
@@ -24,11 +26,14 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     sourceSets {
+
         androidMain.dependencies {
-            implementation(compose.preview)
+            implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+
+            implementation(libs.ktor.client.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -37,13 +42,32 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            implementation(libs.koin.core)
+            implementation(libs.voyager.navigator)
+            implementation(libs.voyager.screen.model)
+            implementation(libs.voyager.transitions)
+            implementation(libs.voyager.koin)
+
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
+
+            implementation(libs.kotlinx.datetime)
+
+            implementation(libs.multiplatform.settings.no.arg)
+            implementation(libs.multiplatform.settings.coroutines)
+
+            implementation(libs.mongodb.realm)
+            implementation(libs.kotlin.coroutines)
+            implementation(libs.stately.common)
         }
-        commonTest.dependencies {
-            implementation(libs.kotlin.test)
+        iosMain.dependencies {
+            implementation(libs.ktor.client.darwin)
         }
     }
+
+    task("testClasses"){}
 }
 
 android {
